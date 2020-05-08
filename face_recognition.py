@@ -5,10 +5,11 @@ import cv2
 import numpy as np
 
 # Create Local Binary Patterns Histograms for face recognization
-recognizer = cv2.face.createLBPHFaceRecognizer()
+recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 # Load the trained mode
-recognizer.load('trainer/trainer.yml')
+#recognizer.read('trainer/trainer.yml')
+recognizer.read('trainer/trainer.py')
 
 # Load prebuilt model for Frontal Face
 cascadePath = "haarcascade_frontalface_default.xml"
@@ -44,13 +45,8 @@ while True:
 
         # Check the ID if exist 
         if(Id == 1):
-            Id = "Jacky"
-        #If not exist, then it is Unknown
-        elif(Id == 2):
-            Id = "Jenifer"
-        else:
-            print(Id)
-			Id = "Unknow"
+            Id = "Phuc"
+        
 
         # Put text describe who is in the picture
         cv2.rectangle(im, (x-22,y-90), (x+w+22, y-22), (0,255,0), -1)
